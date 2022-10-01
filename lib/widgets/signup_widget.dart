@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_authentication/main.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -101,5 +102,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
     } on FirebaseAuthException catch (e){
       print(e);
     }
+    navigatorKey.currentState!.popUntil((route) => route.isFirst);
+
   }
+  
 }
