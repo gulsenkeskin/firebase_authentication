@@ -1,9 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_authentication/main.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class LoginWidget extends StatefulWidget {
-  const LoginWidget({Key? key}) : super(key: key);
+  final VoidCallback onClickedSignUp;
+
+  const LoginWidget({Key? key,required this.onClickedSignUp}) : super(key: key);
 
   @override
   State<LoginWidget> createState() => _LoginWidgetState();
@@ -51,8 +54,8 @@ class _LoginWidgetState extends State<LoginWidget> {
             ),
             ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 7)),
+                  minimumSize: const Size.fromHeight(50),
+          ),
                 onPressed: signIn,
                 icon: const Icon(
                   Icons.lock_open,
@@ -61,7 +64,22 @@ class _LoginWidgetState extends State<LoginWidget> {
                 label: const Text(
                   'Sign In',
                   style: TextStyle(fontSize: 24),
-                ))
+                )),
+            const SizedBox(height: 24,),
+            RichText(text: TextSpan(
+              style:  TextStyle(color: Colors.white),
+              text: 'No account?  ',
+              children: [
+                TextSpan(
+                  recognizer: TapGestureRecognizer()..onTap=widget.onClickedSignUp,
+                  text: 'Sign Up',
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    color:  Theme.of(context).colorScheme.secondary
+                  )
+                )
+              ]
+            ))
           ],
         ),
       );
