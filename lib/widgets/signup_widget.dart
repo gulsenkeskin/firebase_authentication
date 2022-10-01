@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_authentication/main.dart';
 import 'package:flutter/gestures.dart';
@@ -46,10 +47,12 @@ class _SignUpWidgetState extends State<SignUpWidget> {
             const SizedBox(
               height: 40,
             ),
-            TextField(
+            TextFormField(
               controller: emailController,
               textInputAction: TextInputAction.next,
               decoration: const InputDecoration(labelText: 'Email'),
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: (email)=> email !=null && !EmailValidator.validate(email) ? 'Enter a valid email': null,
             ),
             const SizedBox(
               height: 4,
