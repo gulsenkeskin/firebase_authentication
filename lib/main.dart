@@ -1,4 +1,4 @@
-import 'package:firebase_authentication/pages/login_page.dart';
+import 'package:firebase_authentication/widgets/login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -18,11 +18,26 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Frebase Authentication',
+      themeMode: ThemeMode.dark,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+       primaryColor: Colors.green,
+       scaffoldBackgroundColor: Colors.blueGrey[50],
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
       ),
-      home:const LoginPage(),
+      home:const MainPage(),
     );
   }
+}
+
+class MainPage extends StatelessWidget {
+  const MainPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) =>const Scaffold(
+    body: LoginWidget(),
+  );
 }
 
