@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_authentication/main.dart';
+import 'package:firebase_authentication/pages/forgot_password_page.dart';
 import 'package:firebase_authentication/utils/utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,8 @@ import 'package:flutter/material.dart';
 class LoginWidget extends StatefulWidget {
   final VoidCallback onClickedSignUp;
 
-  const LoginWidget({Key? key,required this.onClickedSignUp}) : super(key: key);
+  const LoginWidget({Key? key, required this.onClickedSignUp})
+      : super(key: key);
 
   @override
   State<LoginWidget> createState() => _LoginWidgetState();
@@ -56,7 +58,7 @@ class _LoginWidgetState extends State<LoginWidget> {
             ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size.fromHeight(50),
-          ),
+                ),
                 onPressed: signIn,
                 icon: const Icon(
                   Icons.lock_open,
@@ -66,27 +68,44 @@ class _LoginWidgetState extends State<LoginWidget> {
                   'Sign In',
                   style: TextStyle(fontSize: 24),
                 )),
-            const SizedBox(height: 24,),
-            RichText(text: TextSpan(
-              style:  TextStyle(color: Colors.white),
-              text: 'No account?  ',
-              children: [
-                TextSpan(
-                  recognizer: TapGestureRecognizer()..onTap=widget.onClickedSignUp,
-                  text: 'Sign Up',
-                  style: TextStyle(
+            const SizedBox(
+              height: 24,
+            ),
+            GestureDetector(
+              child: Text(
+                'Forgot Password?',
+                style: TextStyle(
                     decoration: TextDecoration.underline,
-                    color:  Theme.of(context).colorScheme.secondary
-                  )
-                )
-              ]
-            ))
+                    color: Theme.of(context).colorScheme.secondary,
+                    fontSize: 20),
+              ),
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ForgotPasswordPage())),
+            ),
+            RichText(
+                text: TextSpan(
+                    style:const TextStyle(color: Colors.white),
+                    text: 'No account?  ',
+                    children: [
+                  TextSpan(
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = widget.onClickedSignUp,
+                      text: 'Sign Up',
+                      style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: Theme.of(context).colorScheme.secondary))
+                ]))
           ],
         ),
       );
 
   Future signIn() async {
-    showDialog(context: context,barrierDismissible: false, builder: (context)=>const Center(child: CircularProgressIndicator(),));
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => const Center(
+              child: CircularProgressIndicator(),
+            ));
 
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -95,9 +114,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     } on FirebaseAuthException catch (e) {
       print(e);
       Utils.showSnackBar(e.message);
-
     }
-    navigatorKey.currentState!.popUntil((route)=> route.isFirst);
-
+    navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
 }
