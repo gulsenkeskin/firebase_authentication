@@ -1,6 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_authentication/main.dart';
+import 'package:firebase_authentication/utils/utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -113,12 +114,12 @@ class _SignUpWidgetState extends State<SignUpWidget> {
   Future signUp() async {
     final isValid=formKey.currentState!.validate();
     if(!isValid) return;
-    
+
     showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (context) => Center(
-              child: const CircularProgressIndicator(),
+        builder: (context) => const Center(
+              child: CircularProgressIndicator(),
             ));
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -126,6 +127,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
           password: passwordController.text.trim());
     } on FirebaseAuthException catch (e) {
       print(e);
+      Utils.showSnackBar(e.message);
     }
     navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
