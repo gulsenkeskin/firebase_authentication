@@ -27,6 +27,20 @@ class HomePage extends StatelessWidget {
             Text(
               user.email!,
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            ElevatedButton.icon(
+              //firebaseden çıkış yap
+              onPressed: () => FirebaseAuth.instance.signOut(),
+              icon: const Icon(Icons.arrow_back),
+              label: const Text(
+                'Sign Out',
+                style: TextStyle(fontSize: 24),
+              ),
+              style: ElevatedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(50)),
             )
           ],
         ),
