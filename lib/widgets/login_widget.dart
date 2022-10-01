@@ -41,7 +41,7 @@ class _LoginWidgetState extends State<LoginWidget> {
             TextField(
               controller: passwordController,
               textInputAction: TextInputAction.done,
-              decoration:const InputDecoration(labelText: 'Password'),
+              decoration:const InputDecoration(labelText: 'Password',),
               obscureText: true,
             ),
             const SizedBox(
