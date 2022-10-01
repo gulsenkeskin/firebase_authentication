@@ -30,7 +30,7 @@ class _LoginWidgetState extends State<LoginWidget> {
             ),
             TextField(
               controller: emailController,
-              cursorColor: Colors.white,
+              // cursorColor: Colors.white,
               textInputAction: TextInputAction.next,
               decoration: const InputDecoration(labelText: 'Email'),
             ),
