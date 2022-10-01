@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);
 
@@ -22,7 +21,7 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
-        padding:const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -33,7 +32,7 @@ class _LoginWidgetState extends State<LoginWidget> {
               controller: emailController,
               cursorColor: Colors.white,
               textInputAction: TextInputAction.next,
-              decoration:const InputDecoration(labelText: 'Email'),
+              decoration: const InputDecoration(labelText: 'Email'),
             ),
             const SizedBox(
               height: 4,
@@ -41,23 +40,24 @@ class _LoginWidgetState extends State<LoginWidget> {
             TextField(
               controller: passwordController,
               textInputAction: TextInputAction.done,
-              decoration:const InputDecoration(labelText: 'Password',),
+              decoration: const InputDecoration(
+                labelText: 'Password',
+              ),
               obscureText: true,
             ),
             const SizedBox(
               height: 20,
             ),
             ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                padding:const EdgeInsets.symmetric(horizontal: 20, vertical: 7)
-              ),
-
+                style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 7)),
                 onPressed: signIn,
-                icon:const Icon(
+                icon: const Icon(
                   Icons.lock_open,
                   size: 28,
                 ),
-                label:const Text(
+                label: const Text(
                   'Sign In',
                   style: TextStyle(fontSize: 24),
                 ))
@@ -65,7 +65,9 @@ class _LoginWidgetState extends State<LoginWidget> {
         ),
       );
 
-  Future signIn() async{
-    await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text.trim(), password: passwordController.text.trim());
+  Future signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim());
   }
 }
