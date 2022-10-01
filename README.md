@@ -2,6 +2,9 @@
 
 Firebase Authentication
 
+### Used Packages:
+cloud_firestore: https://pub.dev/packages/cloud_firestore/install
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
