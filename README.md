@@ -7,6 +7,8 @@ cloud_firestore: https://pub.dev/packages/cloud_firestore/install
 
 firebase_auth: https://pub.dev/packages/firebase_auth/install
 
+email_validator: https://pub.dev/packages/email_validator/install
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
