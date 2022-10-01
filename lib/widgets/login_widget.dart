@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);
 
@@ -43,7 +44,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 padding:const EdgeInsets.symmetric(horizontal: 20, vertical: 7)
               ),
 
-                onPressed: () {},
+                onPressed: signIn,
                 icon:const Icon(
                   Icons.lock_open,
                   size: 28,
@@ -55,4 +56,7 @@ class _LoginWidgetState extends State<LoginWidget> {
           ],
         ),
       );
+
+  Future signIn() async{
+  }
 }

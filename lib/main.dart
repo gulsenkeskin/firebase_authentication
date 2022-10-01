@@ -1,5 +1,4 @@
 import 'package:firebase_authentication/pages/login_page.dart';
-import 'package:firebase_authentication/widgets/login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
