@@ -52,27 +52,34 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               textInputAction: TextInputAction.next,
               decoration: const InputDecoration(labelText: 'Email'),
               autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: (email)=> email !=null && !EmailValidator.validate(email) ? 'Enter a valid email': null,
+              validator: (email) =>
+                  email != null && !EmailValidator.validate(email)
+                      ? 'Enter a valid email'
+                      : null,
             ),
             const SizedBox(
               height: 4,
             ),
-            TextField(
+            TextFormField(
               controller: passwordController,
               textInputAction: TextInputAction.next,
-              decoration:const InputDecoration(labelText: 'Password'),
+              decoration: const InputDecoration(labelText: 'Password'),
               obscureText: true,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: (value) => value != null && value.length < 6
+                  ? 'Enter min 6 characters'
+                  : null,
             ),
             const SizedBox(
               height: 20,
             ),
             ElevatedButton.icon(
               onPressed: signUp,
-              icon:const Icon(
+              icon: const Icon(
                 Icons.arrow_forward,
                 size: 32,
               ),
-              label:const Text(
+              label: const Text(
                 'Sign Up',
                 style: TextStyle(fontSize: 24),
               ),
@@ -99,14 +106,19 @@ class _SignUpWidgetState extends State<SignUpWidget> {
       );
 
   Future signUp() async {
-    showDialog(context: context, barrierDismissible: false,builder: (context)=> Center(child: const CircularProgressIndicator(),));
-    try{
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text.trim(), password: passwordController.text.trim());
-    } on FirebaseAuthException catch (e){
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => Center(
+              child: const CircularProgressIndicator(),
+            ));
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+    } on FirebaseAuthException catch (e) {
       print(e);
     }
     navigatorKey.currentState!.popUntil((route) => route.isFirst);
-
   }
-  
 }
