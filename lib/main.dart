@@ -11,6 +11,8 @@ Future main() async {
   runApp(const MyApp());
 }
 
+final navigatorKey=GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       title: 'Frebase Authentication',
       themeMode: ThemeMode.dark,
@@ -43,11 +46,19 @@ class MainPage extends StatelessWidget {
             //auth durum değişikliklerini almak için firebase auth paketini kullanırız
             stream: FirebaseAuth.instance.authStateChanges(),
             builder: (context, snapshot) {
-              if (snapshot.hasData) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (snapshot.hasError) {
+                return const Center(
+                  child: Text('Something went wrong!'),
+                );
+              } else if (snapshot.hasData) {
                 //kullanıcı oturum açtıysa
-                return HomePage();
+                return const HomePage();
               } else {
-                return LoginWidget();
+                return const LoginWidget();
               }
             }),
       );
