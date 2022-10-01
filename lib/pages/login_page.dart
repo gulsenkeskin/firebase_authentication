@@ -10,10 +10,10 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   @override
-  Widget build(BuildContext context) =>Scaffold(
-    appBar: AppBar(
-      title: Text("Login"),
-    ),
-    body: LoginWidget(),
-  );
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: const Text("Sign In"),
+        ),
+        body: const LoginWidget(),
+      );
 }
