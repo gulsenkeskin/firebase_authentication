@@ -64,5 +64,18 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
           appBar: AppBar(
             title: const Text('Verify Email'),
           ),
+          body: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text(
+                  'E-postanıza bir doğrulama e-postası gönderildi',
+                  style: TextStyle(fontSize: 20),
+                  textAlign: TextAlign.center,
+                )
+              ],
+            ),
+          ),
         );
 }
