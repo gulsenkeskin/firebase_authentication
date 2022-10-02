@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_authentication/common/input_theme.dart';
 import 'package:firebase_authentication/pages/auth_page.dart';
 import 'package:firebase_authentication/pages/home_page.dart';
 import 'package:firebase_authentication/pages/verify_email_page.dart';
@@ -26,10 +27,12 @@ class MyApp extends StatelessWidget {
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       title: 'Frebase Authentication',
-      themeMode: ThemeMode.dark,
+      // themeMode: ThemeMode.dark,
       theme: ThemeData(
+        primarySwatch: Colors.green,
         primaryColor: Colors.green,
-        scaffoldBackgroundColor: Colors.blueGrey[50],
+        // scaffoldBackgroundColor: Colors.blueGrey[50],
+        inputDecorationTheme: CustomInputTheme().theme(),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           elevation: 0,
