@@ -15,6 +15,7 @@ class VerifyEmailPage extends StatefulWidget {
 class _VerifyEmailPageState extends State<VerifyEmailPage> {
   bool isEmailVerified = false;
   Timer? timer;
+  bool canResendEmail = false;
 
   @override
   void initState() {
@@ -52,6 +53,10 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
     try {
       final user = FirebaseAuth.instance.currentUser!;
       await user.sendEmailVerification();
+
+      setState(() => canResendEmail = false);
+      await Future.delayed(Duration(seconds: 5));
+      setState(() => canResendEmail = true);
     } catch (e) {
       Utils.showSnackBar(e.toString());
     }
@@ -68,11 +73,37 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
             padding: const EdgeInsets.all(16),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   'E-postanıza bir doğrulama e-postası gönderildi',
                   style: TextStyle(fontSize: 20),
                   textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                ElevatedButton.icon(
+                  onPressed: canResendEmail ? sendVerificationEmail : null,
+                  icon: const Icon(
+                    Icons.email,
+                    size: 32,
+                  ),
+                  label: const Text('Resent Email',
+                      style: TextStyle(fontSize: 24)),
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size.fromHeight(50)),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                TextButton(
+                  onPressed: () => FirebaseAuth.instance.signOut(),
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size.fromHeight(50)),
+                  child: const Text(
+                    'Cancel',
+                    style: TextStyle(fontSize: 24),
+                  ),
                 )
               ],
             ),
