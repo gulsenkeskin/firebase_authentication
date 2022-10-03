@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class PasswordField extends StatefulWidget {
   final TextEditingController controller;
-  const PasswordField({Key? key, required this.controller}) : super(key: key);
+  final TextInputAction? textInputAction;
+  const PasswordField({Key? key, required this.controller,  this.textInputAction}) : super(key: key);
 
   @override
   State<PasswordField> createState() => _PasswordFieldState();
@@ -15,6 +16,7 @@ class _PasswordFieldState extends State<PasswordField> {
 
   @override
   Widget build(BuildContext context) => TextFormField(
+    textInputAction: widget.textInputAction ?? TextInputAction.next,
     validator: (value){
       if(value!.isWhitespace()){
         return "Bu alan boş geçilemez";
