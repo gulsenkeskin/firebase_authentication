@@ -91,7 +91,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                   ),
                   label: const Text(
                     'REGISTER',
-                    style: TextStyle(fontSize: 24),
+                    style: TextStyle(fontSize: 20),
                   ),
                   style: buttonStyle(),
                 ),

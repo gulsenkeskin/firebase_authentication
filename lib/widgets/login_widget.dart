@@ -69,7 +69,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                   onPressed: signIn,
                   child: const Text(
                     'LOGIN',
-                    style: TextStyle(fontSize: 22),
+                    style: TextStyle(fontSize: 20),
                   )),
 
               // ElevatedButton.icon(
