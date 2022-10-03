@@ -16,6 +16,7 @@ class _PasswordFieldState extends State<PasswordField> {
 
   @override
   Widget build(BuildContext context) => TextFormField(
+    controller: widget.controller,
     textInputAction: widget.textInputAction ?? TextInputAction.next,
     validator: (value){
       if(value!.isWhitespace()){
