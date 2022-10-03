@@ -2,7 +2,8 @@ import 'package:firebase_authentication/common/string_extensions.dart';
 import 'package:flutter/material.dart';
 
 class PasswordField extends StatefulWidget {
-  const PasswordField({Key? key}) : super(key: key);
+  final TextEditingController controller;
+  const PasswordField({Key? key, required this.controller}) : super(key: key);
 
   @override
   State<PasswordField> createState() => _PasswordFieldState();
