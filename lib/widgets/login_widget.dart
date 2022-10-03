@@ -47,7 +47,7 @@ class _LoginWidgetState extends State<LoginWidget> {
               //   decoration: const InputDecoration(labelText: 'Email'),
               // ),
               const SizedBox(
-                height: 4,
+                height: 8,
               ),
               PasswordField(
                 controller: passwordController,
