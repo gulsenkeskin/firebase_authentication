@@ -67,7 +67,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 //           : null,
                 // ),
                 const SizedBox(
-                  height: 4,
+                  height: 8,
                 ),
                 PasswordField(controller: passwordController),
                 // TextFormField(
