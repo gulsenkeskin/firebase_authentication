@@ -1,6 +1,6 @@
 Firebase Authentication
 
-<img src='ss/1.gif' width="360" height="680"/><img src='ss/1.png' width="360" height="680"/><img src='ss/2.png' width="360" height="680"/><img src='ss/3.png' width="360" height="680"/><img src='ss/4.png' width="360" height="680"/><img src='ss/5.png' width="360" height="680"/><img src='ss/6.png' width="360" height="680"/>
+<img src='ss/1.png' width="360" height="680"/><img src='ss/2.png' width="360" height="680"/><img src='ss/3.png' width="360" height="680"/><img src='ss/4.png' width="360" height="680"/><img src='ss/5.png' width="360" height="680"/><img src='ss/6.png' width="360" height="680"/>
 
 ### Used Packages:
 cloud_firestore: https://pub.dev/packages/cloud_firestore/install
