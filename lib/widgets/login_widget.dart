@@ -88,7 +88,7 @@ class _LoginWidgetState extends State<LoginWidget> {
             ),
             RichText(
                 text: TextSpan(
-                    style:const TextStyle(color: Colors.white),
+                   style:const TextStyle(color: Colors.black),
                     text: 'No account?  ',
                     children: [
                   TextSpan(

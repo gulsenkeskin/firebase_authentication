@@ -95,7 +95,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               ),
               RichText(
                   text: TextSpan(
-                      style: const TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.black),
                       text: 'Already have an account?  ',
                       children: [
                     TextSpan(

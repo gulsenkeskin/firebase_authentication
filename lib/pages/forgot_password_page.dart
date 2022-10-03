@@ -44,7 +44,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 ),
                 TextFormField(
                   controller: emailController,
-                  cursorColor: Colors.white,
+                  //cursorColor: Colors.white,
                   textInputAction: TextInputAction.done,
                   decoration: const InputDecoration(labelText: 'Email'),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
