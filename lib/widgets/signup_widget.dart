@@ -39,20 +39,20 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               const SizedBox(
                 height: 60,
               ),
-              const FlutterLogo(
-                size: 120,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const Text(
-                'Hey There, \n Welcome Back',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
+              // const FlutterLogo(
+              //   size: 120,
+              // ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // const Text(
+              //   'Hey There, \n Welcome Back',
+              //   textAlign: TextAlign.center,
+              //   style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              // ),
+              // const SizedBox(
+              //   height: 40,
+              // ),
               EmailField(controller: emailController),
               // TextFormField(
               //   controller: emailController,
@@ -84,7 +84,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               ElevatedButton.icon(
                 onPressed: signUp,
                 icon: const Icon(
-                  Icons.arrow_forward,
+                  Icons.people,
                   size: 32,
                 ),
                 label: const Text(

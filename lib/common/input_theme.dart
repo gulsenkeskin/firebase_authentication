@@ -22,7 +22,7 @@ class CustomInputTheme {
         enabledBorder: _buildBorder(Colors.grey[600]!),
         errorBorder: _buildBorder(Colors.red),
         focusedErrorBorder: _buildBorder(Colors.redAccent),
-        focusedBorder: _buildBorder(Colors.green),
+        focusedBorder: _buildBorder(Colors.teal),
         disabledBorder: _buildBorder(Colors.grey[400]!),
         suffixStyle: _buildTextStyle(Colors.black),
         counterStyle: _buildTextStyle(Colors.grey, size: 12.0),

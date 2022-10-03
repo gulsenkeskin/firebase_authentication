@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
       title: 'Frebase Authentication',
       // themeMode: ThemeMode.dark,
       theme: ThemeData(
-        primarySwatch: Colors.green,
-        primaryColor: Colors.green,
+        primarySwatch: Colors.teal,
+        // primaryColor: Colors.green,
         // scaffoldBackgroundColor: Colors.blueGrey[50],
         inputDecorationTheme: CustomInputTheme().theme(),
         appBarTheme: const AppBarTheme(

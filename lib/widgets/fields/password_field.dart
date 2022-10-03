@@ -34,7 +34,7 @@ class _PasswordFieldState extends State<PasswordField> {
         onPressed: ()=> setState(() => obscurePassword=!obscurePassword),
         icon: Icon(
           obscurePassword ? Icons.visibility :Icons.visibility_off,
-          color: Colors.green,
+          color: Colors.teal,
         ),
       )
 
