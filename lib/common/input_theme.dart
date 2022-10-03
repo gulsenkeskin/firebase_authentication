@@ -9,7 +9,7 @@ class CustomInputTheme {
 
   OutlineInputBorder _buildBorder(Color color) {
     return OutlineInputBorder(
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        borderRadius: const BorderRadius.all(Radius.circular(6)),
         borderSide: BorderSide(color: color, width: 1.0));
   }
 
@@ -18,9 +18,7 @@ class CustomInputTheme {
         isDense: true,
         //label'ı her zaman yukarıya koyar :D
         floatingLabelBehavior: FloatingLabelBehavior.always, //never hiç bir zaman göstermez, auto: otaklanıldığında üste kaydırır
-    
-
-        constraints: BoxConstraints(maxWidth: 150),
+        // constraints: BoxConstraints(maxWidth: 150),
         enabledBorder: _buildBorder(Colors.grey[600]!),
         errorBorder: _buildBorder(Colors.red),
         focusedErrorBorder: _buildBorder(Colors.redAccent),
