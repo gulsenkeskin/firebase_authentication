@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_authentication/main.dart';
 import 'package:firebase_authentication/pages/forgot_password_page.dart';
 import 'package:firebase_authentication/utils/utils.dart';
+import 'package:firebase_authentication/widgets/fields/email_field.dart';
+import 'package:firebase_authentication/widgets/fields/password_field.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -35,23 +37,25 @@ class _LoginWidgetState extends State<LoginWidget> {
             const SizedBox(
               height: 40,
             ),
-            TextField(
-              controller: emailController,
-              // cursorColor: Colors.white,
-              textInputAction: TextInputAction.next,
-              decoration: const InputDecoration(labelText: 'Email'),
-            ),
+            EmailField(controller: emailController),
+            // TextField(
+            //   controller: emailController,
+            //   // cursorColor: Colors.white,
+            //   textInputAction: TextInputAction.next,
+            //   decoration: const InputDecoration(labelText: 'Email'),
+            // ),
             const SizedBox(
               height: 4,
             ),
-            TextField(
-              controller: passwordController,
-              textInputAction: TextInputAction.done,
-              decoration: const InputDecoration(
-                labelText: 'Password',
-              ),
-              obscureText: true,
-            ),
+            PasswordField(controller: passwordController,textInputAction: TextInputAction.done,),
+            // TextField(
+            //   controller: passwordController,
+            //   textInputAction: TextInputAction.done,
+            //   decoration: const InputDecoration(
+            //     labelText: 'Password',
+            //   ),
+            //   obscureText: true,
+            // ),
             const SizedBox(
               height: 20,
             ),
