@@ -16,8 +16,7 @@ class CustomInputTheme {
   InputDecorationTheme theme() => InputDecorationTheme(
         contentPadding: const EdgeInsets.all(16),
         isDense: true,
-        //label'ı her zaman yukarıya koyar :D
-        floatingLabelBehavior: FloatingLabelBehavior.always, //never hiç bir zaman göstermez, auto: otaklanıldığında üste kaydırır
+        floatingLabelBehavior: FloatingLabelBehavior.auto, //never hiç bir zaman göstermez, auto: otaklanıldığında üste kaydırır //always her zaman yukarıda gösterir
         // constraints: BoxConstraints(maxWidth: 150),
         enabledBorder: _buildBorder(Colors.grey[600]!),
         errorBorder: _buildBorder(Colors.red),
