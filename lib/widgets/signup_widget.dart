@@ -29,91 +29,93 @@ class _SignUpWidgetState extends State<SignUpWidget> {
   }
 
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Form(
-          key: formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(
-                height: 60,
-              ),
-              // const FlutterLogo(
-              //   size: 120,
-              // ),
-              // const SizedBox(
-              //   height: 20,
-              // ),
-              // const Text(
-              //   'Hey There, \n Welcome Back',
-              //   textAlign: TextAlign.center,
-              //   style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-              // ),
-              // const SizedBox(
-              //   height: 40,
-              // ),
-              EmailField(controller: emailController),
-              // TextFormField(
-              //   controller: emailController,
-              //   textInputAction: TextInputAction.next,
-              //   decoration: const InputDecoration(labelText: 'Email'),
-              //   autovalidateMode: AutovalidateMode.onUserInteraction,
-              //   validator: (email) =>
-              //       email != null && !EmailValidator.validate(email)
-              //           ? 'Enter a valid email'
-              //           : null,
-              // ),
-              const SizedBox(
-                height: 4,
-              ),
-              PasswordField(controller: passwordController),
-              // TextFormField(
-              //   controller: passwordController,
-              //   textInputAction: TextInputAction.next,
-              //   decoration: const InputDecoration(labelText: 'Password'),
-              //   obscureText: true,
-              //   autovalidateMode: AutovalidateMode.onUserInteraction,
-              //   validator: (value) => value != null && value.length < 6
-              //       ? 'Enter min 6 characters'
-              //       : null,
-              // ),
-              const SizedBox(
-                height: 20,
-              ),
-              ElevatedButton.icon(
-                onPressed: signUp,
-                icon: const Icon(
-                  Icons.people,
-                  size: 32,
+  Widget build(BuildContext context) => Center(
+    child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Form(
+            key: formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 60,
                 ),
-                label: const Text(
-                  'Sign Up',
-                  style: TextStyle(fontSize: 24),
+                // const FlutterLogo(
+                //   size: 120,
+                // ),
+                // const SizedBox(
+                //   height: 20,
+                // ),
+                // const Text(
+                //   'Hey There, \n Welcome Back',
+                //   textAlign: TextAlign.center,
+                //   style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                // ),
+                // const SizedBox(
+                //   height: 40,
+                // ),
+                EmailField(controller: emailController),
+                // TextFormField(
+                //   controller: emailController,
+                //   textInputAction: TextInputAction.next,
+                //   decoration: const InputDecoration(labelText: 'Email'),
+                //   autovalidateMode: AutovalidateMode.onUserInteraction,
+                //   validator: (email) =>
+                //       email != null && !EmailValidator.validate(email)
+                //           ? 'Enter a valid email'
+                //           : null,
+                // ),
+                const SizedBox(
+                  height: 4,
                 ),
-                style:
-                    ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50)),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              RichText(
-                  text: TextSpan(
-                      style: const TextStyle(color: Colors.black),
-                      text: 'Already have an account?  ',
-                      children: [
-                    TextSpan(
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = widget.onClickedSignIn,
-                        text: 'Log In',
-                        style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            color: Theme.of(context).colorScheme.secondary))
-                  ]))
-            ],
+                PasswordField(controller: passwordController),
+                // TextFormField(
+                //   controller: passwordController,
+                //   textInputAction: TextInputAction.next,
+                //   decoration: const InputDecoration(labelText: 'Password'),
+                //   obscureText: true,
+                //   autovalidateMode: AutovalidateMode.onUserInteraction,
+                //   validator: (value) => value != null && value.length < 6
+                //       ? 'Enter min 6 characters'
+                //       : null,
+                // ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton.icon(
+                  onPressed: signUp,
+                  icon: const Icon(
+                    Icons.people,
+                    size: 32,
+                  ),
+                  label: const Text(
+                    'Sign Up',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                  style:
+                      ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50)),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                RichText(
+                    text: TextSpan(
+                        style: const TextStyle(color: Colors.black),
+                        text: 'Already have an account?  ',
+                        children: [
+                      TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = widget.onClickedSignIn,
+                          text: 'Log In',
+                          style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              color: Theme.of(context).colorScheme.secondary))
+                    ]))
+              ],
+            ),
           ),
         ),
-      );
+  );
 
   Future signUp() async {
     final isValid = formKey.currentState!.validate();
