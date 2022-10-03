@@ -2,6 +2,8 @@ import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_authentication/main.dart';
 import 'package:firebase_authentication/utils/utils.dart';
+import 'package:firebase_authentication/widgets/fields/email_field.dart';
+import 'package:firebase_authentication/widgets/fields/password_field.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -51,29 +53,31 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               const SizedBox(
                 height: 40,
               ),
-              TextFormField(
-                controller: emailController,
-                textInputAction: TextInputAction.next,
-                decoration: const InputDecoration(labelText: 'Email'),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (email) =>
-                    email != null && !EmailValidator.validate(email)
-                        ? 'Enter a valid email'
-                        : null,
-              ),
+              EmailField(controller: emailController),
+              // TextFormField(
+              //   controller: emailController,
+              //   textInputAction: TextInputAction.next,
+              //   decoration: const InputDecoration(labelText: 'Email'),
+              //   autovalidateMode: AutovalidateMode.onUserInteraction,
+              //   validator: (email) =>
+              //       email != null && !EmailValidator.validate(email)
+              //           ? 'Enter a valid email'
+              //           : null,
+              // ),
               const SizedBox(
                 height: 4,
               ),
-              TextFormField(
-                controller: passwordController,
-                textInputAction: TextInputAction.next,
-                decoration: const InputDecoration(labelText: 'Password'),
-                obscureText: true,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) => value != null && value.length < 6
-                    ? 'Enter min 6 characters'
-                    : null,
-              ),
+              PasswordField(controller: passwordController),
+              // TextFormField(
+              //   controller: passwordController,
+              //   textInputAction: TextInputAction.next,
+              //   decoration: const InputDecoration(labelText: 'Password'),
+              //   obscureText: true,
+              //   autovalidateMode: AutovalidateMode.onUserInteraction,
+              //   validator: (value) => value != null && value.length < 6
+              //       ? 'Enter min 6 characters'
+              //       : null,
+              // ),
               const SizedBox(
                 height: 20,
               ),
@@ -112,8 +116,8 @@ class _SignUpWidgetState extends State<SignUpWidget> {
       );
 
   Future signUp() async {
-    final isValid=formKey.currentState!.validate();
-    if(!isValid) return;
+    final isValid = formKey.currentState!.validate();
+    if (!isValid) return;
 
     showDialog(
         context: context,

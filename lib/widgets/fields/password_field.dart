@@ -16,11 +16,12 @@ class _PasswordFieldState extends State<PasswordField> {
 
   @override
   Widget build(BuildContext context) => TextFormField(
+    autovalidateMode: AutovalidateMode.onUserInteraction,
     controller: widget.controller,
     textInputAction: widget.textInputAction ?? TextInputAction.next,
     validator: (value){
-      if(value!.isWhitespace()){
-        return "Bu alan boş geçilemez";
+      if(value!.isWhitespace() && value.length < 6){
+        return "Şifre en az 6 karakter olmalıdır";
       }
     },
     obscureText: obscurePassword,

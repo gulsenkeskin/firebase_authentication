@@ -1,6 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_authentication/utils/utils.dart';
+import 'package:firebase_authentication/widgets/fields/email_field.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
@@ -42,22 +43,26 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                TextFormField(
+                EmailField(
                   controller: emailController,
-                  //cursorColor: Colors.white,
                   textInputAction: TextInputAction.done,
-                  decoration: const InputDecoration(labelText: 'Email'),
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: (email) =>
-                      email != null && !EmailValidator.validate(email)
-                          ? 'Enter a valid email'
-                          : null,
                 ),
+                // TextFormField(
+                //   controller: emailController,
+                //   //cursorColor: Colors.white,
+                //   textInputAction: TextInputAction.done,
+                //   decoration: const InputDecoration(labelText: 'Email'),
+                //   autovalidateMode: AutovalidateMode.onUserInteraction,
+                //   validator: (email) =>
+                //       email != null && !EmailValidator.validate(email)
+                //           ? 'Enter a valid email'
+                //           : null,
+                // ),
                 const SizedBox(
                   height: 20,
                 ),
                 ElevatedButton.icon(
-                  onPressed:resetPassword,
+                  onPressed: resetPassword,
                   icon: const Icon(Icons.email_outlined),
                   label: const Text(
                     'Reset Password',
@@ -72,20 +77,23 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         ),
       );
 
-  Future resetPassword() async{
-    showDialog(context: context,barrierDismissible: false, builder: (context)=> const Center(child: CircularProgressIndicator(),));
+  Future resetPassword() async {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => const Center(
+              child: CircularProgressIndicator(),
+            ));
 
-    try{
-
-      await FirebaseAuth.instance.sendPasswordResetEmail(email: emailController.text.trim());
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: emailController.text.trim());
       Utils.showSnackBar('Şifre sıfırlama epostası gönderildi');
       Navigator.of(context).popUntil((route) => route.isFirst);
-    } on FirebaseAuthException catch (e){
+    } on FirebaseAuthException catch (e) {
       print(e);
       Utils.showSnackBar(e.message);
       Navigator.of(context).pop();
     }
-
-
   }
 }
