@@ -9,7 +9,7 @@ class CustomInputTheme {
 
   OutlineInputBorder _buildBorder(Color color) {
     return OutlineInputBorder(
-        borderRadius: const BorderRadius.all(Radius.circular(6)),
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
         borderSide: BorderSide(color: color, width: 1.0));
   }
 

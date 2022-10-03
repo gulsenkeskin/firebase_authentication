@@ -1,6 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_authentication/main.dart';
+import 'package:firebase_authentication/utils/style.dart';
 import 'package:firebase_authentication/utils/utils.dart';
 import 'package:firebase_authentication/widgets/fields/email_field.dart';
 import 'package:firebase_authentication/widgets/fields/password_field.dart';
@@ -30,7 +31,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
 
   @override
   Widget build(BuildContext context) => Center(
-    child: SingleChildScrollView(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
           child: Form(
             key: formKey,
@@ -89,11 +90,10 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                     size: 32,
                   ),
                   label: const Text(
-                    'Sign Up',
+                    'REGISTER',
                     style: TextStyle(fontSize: 24),
                   ),
-                  style:
-                      ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50)),
+                  style: buttonStyle(),
                 ),
                 const SizedBox(
                   height: 20,
@@ -115,7 +115,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
             ),
           ),
         ),
-  );
+      );
 
   Future signUp() async {
     final isValid = formKey.currentState!.validate();

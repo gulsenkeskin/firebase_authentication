@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_authentication/main.dart';
 import 'package:firebase_authentication/pages/forgot_password_page.dart';
+import 'package:firebase_authentication/utils/style.dart';
 import 'package:firebase_authentication/utils/utils.dart';
 import 'package:firebase_authentication/widgets/fields/email_field.dart';
 import 'package:firebase_authentication/widgets/fields/password_field.dart';
@@ -30,7 +31,7 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   Widget build(BuildContext context) => Center(
-    child: SingleChildScrollView(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -48,7 +49,10 @@ class _LoginWidgetState extends State<LoginWidget> {
               const SizedBox(
                 height: 4,
               ),
-              PasswordField(controller: passwordController,textInputAction: TextInputAction.done,),
+              PasswordField(
+                controller: passwordController,
+                textInputAction: TextInputAction.done,
+              ),
               // TextField(
               //   controller: passwordController,
               //   textInputAction: TextInputAction.done,
@@ -60,19 +64,27 @@ class _LoginWidgetState extends State<LoginWidget> {
               const SizedBox(
                 height: 20,
               ),
-              ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size.fromHeight(50),
-                  ),
+              ElevatedButton(
+                  style: buttonStyle(),
                   onPressed: signIn,
-                  icon: const Icon(
-                    Icons.lock_open,
-                    size: 28,
-                  ),
-                  label: const Text(
-                    'Sign In',
-                    style: TextStyle(fontSize: 24),
+                  child: const Text(
+                    'LOGIN',
+                    style: TextStyle(fontSize: 22),
                   )),
+
+              // ElevatedButton.icon(
+              //     style: ElevatedButton.styleFrom(
+              //       minimumSize: const Size.fromHeight(50),
+              //     ),
+              //     onPressed: signIn,
+              //     icon: const Icon(
+              //       Icons.lock_open,
+              //       size: 28,
+              //     ),
+              //     label: const Text(
+              //       'LOGIN',
+              //       style: TextStyle(fontSize: 24),
+              //     )),
               const SizedBox(
                 height: 24,
               ),
@@ -89,7 +101,7 @@ class _LoginWidgetState extends State<LoginWidget> {
               ),
               RichText(
                   text: TextSpan(
-                     style:const TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                       text: 'No account?  ',
                       children: [
                     TextSpan(
@@ -103,7 +115,7 @@ class _LoginWidgetState extends State<LoginWidget> {
             ],
           ),
         ),
-  );
+      );
 
   Future signIn() async {
     showDialog(

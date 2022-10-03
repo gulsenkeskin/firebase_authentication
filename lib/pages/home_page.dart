@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_authentication/utils/style.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -39,8 +40,7 @@ class HomePage extends StatelessWidget {
                 'Sign Out',
                 style: TextStyle(fontSize: 24),
               ),
-              style: ElevatedButton.styleFrom(
-                  minimumSize: const Size.fromHeight(50)),
+              style: buttonStyle(),
             )
           ],
         ),

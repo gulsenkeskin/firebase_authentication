@@ -4,6 +4,8 @@ import 'package:firebase_authentication/utils/utils.dart';
 import 'package:firebase_authentication/widgets/fields/email_field.dart';
 import 'package:flutter/material.dart';
 
+import '../utils/style.dart';
+
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key? key}) : super(key: key);
 
@@ -68,16 +70,17 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                   icon: const Icon(Icons.email_outlined),
                   label: const Text(
                     'Reset Password',
-                    style: TextStyle(fontSize: 24),
+                    style: TextStyle(fontSize: 20),
                   ),
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(50)),
+                  style: buttonStyle(),
                 )
               ],
             ),
           ),
         ),
       );
+
+
 
   Future resetPassword() async {
     showDialog(

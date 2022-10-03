@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_authentication/pages/home_page.dart';
+import 'package:firebase_authentication/utils/style.dart';
 import 'package:firebase_authentication/utils/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -90,16 +91,15 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
                   ),
                   label: const Text('Resent Email',
                       style: TextStyle(fontSize: 24)),
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(50)),
+                  style: buttonStyle(),
                 ),
                 const SizedBox(
                   height: 8,
                 ),
                 TextButton(
                   onPressed: () => FirebaseAuth.instance.signOut(),
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(50)),
+                  style: buttonStyle(),
+
                   child: const Text(
                     'Cancel',
                     style: TextStyle(fontSize: 24),
